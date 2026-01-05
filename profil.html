@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKI</title>
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #75A4B3;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background-color: #75A4B3;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: relative;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* MENU */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #CA6C6C;
+        }
+
+        /* HAMBURGER */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* JAM */
+        .clock {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #fff; }
+            to { box-shadow: 0 0 15px #ffd6d6; }
+        }
+
+        /* ===== HEADER ===== */
+        #header {
+            height: 300px;
+            background-image: url(img3/k.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ===== CONTENT ===== */
+        #content {
+            background-color: #979FA9;
+            padding: 30px;
+        }
+
+        #content h1 {
+            font-size: 35px;
+            color: rgb(19, 98, 167);
+            margin-bottom: 15px;
+        }
+
+        #content p {
+            font-size: 15px;
+            line-height: 1.8em;
+            text-align: justify;
+            color: rgb(22, 42, 48);
+            margin-bottom: 15px;
+        }
+
+        #content ul{
+			font-size: 15px;
+			font-family: Arial;
+			color: black;
+			text-align: justify;
+		}
+
+        /* ===== FOOTER ===== */
+        #footer {
+            background-color: #8190a2;
+            text-align: center;
+            padding: 15px;
+            border-bottom-right-radius: 45px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #75A4B3;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+            }
+
+            .nav-menu li {
+                padding: 15px 0;
+            }
+
+            #menu-toggle:checked ~ .nav-menu {
+                display: flex;
+            }
+
+            .clock {
+                position: absolute;
+                right: 55px;
+                top: 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">NIKI</div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profil.html">Profile</a></li>
+                <li><a href="galleryN.html">Gallery</a></li>
+                <li><a href="contact niki.html">Contact</a></li>
+            </ul>
+
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div id="header" class="container"></div>
+
+    <!-- CONTENT -->
+    <div id="content" class="container">
+        <h1>Profile singkat NIKI</h1>
+       <p><ul>
+            <li>Nama Lengkap: Nicole Zefanya</li>
+              <li>Nama panggung : NIKI</li>
+              <li>Lahir : Jakarta, 24 Januari 1999</li> 
+              <li>Kewarganegaraan: Indonesia</li>
+              <li>Profesi : Penyanyi, Penulis Lagu</li>
+              <li>Genre Musik: R&B, Indie Folk</li>
+              <li>Tahun aktif :	2014–sekarang</li>
+              <li>Label : 88rising</li>
+        </ul></p>
+        <h2>Perjalanan Karier Singkat</h2>
+        <p><ul>
+            <li>Awal Karier : Mulai bermain gitar dan menulis lagu sejak usia 9 tahun, mengelola channel YouTube saat remaja.</li>
+            <li>Prestasi Awal : Menjadi opening act untuk konser Taylor Swift The Red Tour di Jakarta (2014).</li>
+            <li>Bergabung 88rising : Merilis musik profesional dan menjadi bagian dari keluarga artis 88rising (bersama Rich Brian, dll).</li>
+            <li>Album & Lagu Terkenal :</li>
+              <ul type circle>
+                <li>EP : Zephyr (2018), wanna take this downtown? (2019).</li>
+                <li>Album : Moonchild (2020), Nicole (2022).</li>
+                <li>Lagu : "Lowkey", "Indigo", "Every Summertime", "Oceans & Engines", "High School in Jakarta".</li>
+              </ul>
+            <li>Pencapaian : Masuk daftar Forbes 30 Under 30 Asia (2020), dan menjadi artis Indonesia pertama yang mencapai Top 20 Spotify Global.</li>
+        </ul></p>
+        <h3>Fakta Menarik</h3>
+        <p><ul>
+            <li>Pengaruh Musik : Sangat dipengaruhi oleh musik R&B tahun 90-an dan ibunya yang penyanyi gospel.</li>
+            <li>Saran untuk Musisi Muda: "Jadilah diri sendiri". </li>
+        </ul></p>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer" class="container">
+        &copy; Copyright Hilya Asyhar Ulya,251011701002,01SIFP016 – 2025
+    </div>
+
+    <!-- JAVASCRIPT JAM -->
+    <script>
+        function updateClock() {
+            const clock = document.getElementById("clock");
+            const now = new Date();
+
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            clock.innerHTML = h + ":" + m + ":" + s;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
