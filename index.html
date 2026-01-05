@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKI</title>
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #75A4B3;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background-color: #75A4B3;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: relative;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* MENU */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #CA6C6C;
+        }
+
+        /* HAMBURGER */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* JAM */
+        .clock {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #fff; }
+            to { box-shadow: 0 0 15px #ffd6d6; }
+        }
+
+        /* ===== HEADER ===== */
+        #header {
+            height: 300px;
+            background-image: url(img3/k.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ===== CONTENT ===== */
+        #content {
+            background-color: #979FA9;
+            padding: 30px;
+        }
+
+        #content h1 {
+            font-size: 35px;
+            color: rgb(19, 98, 167);
+            margin-bottom: 15px;
+        }
+
+        #content p {
+            font-size: 15px;
+            line-height: 1.8em;
+            text-align: justify;
+            color: rgb(22, 42, 48);
+            margin-bottom: 15px;
+        }
+
+        /* ===== FOOTER ===== */
+        #footer {
+            background-color: #8190a2;
+            text-align: center;
+            padding: 15px;
+            border-bottom-right-radius: 45px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #75A4B3;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+            }
+
+            .nav-menu li {
+                padding: 15px 0;
+            }
+
+            #menu-toggle:checked ~ .nav-menu {
+                display: flex;
+            }
+
+            .clock {
+                position: absolute;
+                right: 55px;
+                top: 15px;
+                font-size: 12px;
+            }
+        }
+        /* ===== ALBUM ===== */
+.album-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* sembunyikan checkbox */
+.album-toggle {
+    display: none;
+}
+
+/* kartu album */
+.album-card {
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.album-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.album-card:hover {
+    transform: translateY(-8px);
+}
+
+/* ===== WARNA TIAP ALBUM ===== */
+.album-blue {
+    border-top: 6px solid #4A90E2;
+}
+.album-pink {
+    border-top: 6px solid #E26D8A;
+}
+.album-purple {
+    border-top: 6px solid #8E6BE8;
+}
+
+.album-blue:hover {
+    box-shadow: 0 15px 25px rgba(74,144,226,0.5);
+}
+.album-pink:hover {
+    box-shadow: 0 15px 25px rgba(226,109,138,0.5);
+}
+.album-purple:hover {
+    box-shadow: 0 15px 25px rgba(142,107,232,0.5);
+}
+
+/* ===== DAFTAR LAGU ===== */
+.song-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 10px;
+}
+
+.song-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.song-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* tampil saat album diklik */
+.album-toggle:checked + .album-card .song-list {
+    max-height: 300px;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">NIKI</div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profil.html">Profile</a></li>
+                <li><a href="galleryN.html">Gallery</a></li>
+                <li><a href="contact niki.html">Contact</a></li>
+            </ul>
+
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div id="header" class="container"></div>
+
+    <!-- CONTENT -->
+    <div id="content" class="container">
+        <h1>NIKI</h1>
+        <p>Nicole Zefanya yang juga dikenal dengan nama panggung NIKI, adalah penyanyi dan penulis lagu Indonesia.
+         Niki merupakan artis Indonesia paling populer di Spotify dengan lebih dari 4,6 miliar pemutaran.
+         Ia juga merupakan artis Indonesia pertama yang memasuki top 15 global spotify dengan rekor jumlah pendengar 2,9 juta.
+         Niki juga menjadi artis indonesia pertama dengan jumlah pendengar bulanan (monthly listeners) terbanyak di platform tersebut,
+         yakni pernah mencapai 22,8 juta pendengar dan meraih peringkat #317 di dunia pada juli 2025, serta menjadi penyanyi wanita asal Indonesia pertama
+         yang mendapatkan Sertifikasi Emas oleh RIAA (lagunya telah terjual lebih dari 500.000 unit di US) dengan "Every Summertime"</p>
+         <p>NIKI pertama kali debut di Indonesia melalui single "Suka Kamu" (2012) bersama penyanyi muda Gavin MJ dengan nama Nicole Z. 
+         Video NIKI saat tampil di Dahsyat pada saat itu sempat viral di TikTok.</p>
+         <p>Ia sempat menjadi penampil pembuka konser Taylor Swift di Jakarta bertajuk The Red Tour pada 2014.
+         Sedangkan lagu debutnya sebagai solois di Indonesia berjudul "Awali Hari dengan Cinta" (2014) di bawah naungan Sony Music.</p>
+         <p>Melalui YouTube, NIKI mengunggah lagu buatannya, seperti "Polaroid Boy" (2016) hingga "Anaheim" (2017).
+         Sedangkan debutnya di bawah 88rising pada Mei 2018 lewat lagu "Vintage". Lagu-lagunya, seperti "Lowkey" (2019), "Every Summertime" (2021), hingga "California" (2021) dicintai masyarakat Indonesia.</p>
+         <p> NIKI telah merilis tiga album studio, yaitu Moonchild (2020), Nicole (2022), dan Buzz (2024), serta beberapa album mini (EP) dan album live, menjadikannya seorang musisi yang produktif dengan karya-karya yang mengeksplorasi perjalanan emosionalnya. </p>
+         <p>Melalui tiga album studionya, NIKI berhasil menggambarkan perjalanan hidup seorang perempuan muda yang tumbuh, jatuh, belajar, dan bangkit kembali.
+         Setiap album merepresentasikan fase emosional yang berbeda namun saling terhubung.</p>
+
+
+         <h2>Albums</h2>
+
+<div class="album-wrapper">
+
+    <!-- MOONCHILD -->
+    <input type="checkbox" id="album1" class="album-toggle">
+    <label for="album1" class="album-card album-blue">
+        <img src="img3/cv moon.jpg">
+        <h3>Moonchild</h3>
+        <p>2020</p>
+
+        <div class="song-list">
+            <ul>
+                <li>Wide Open (Foreword)</li>
+                <li>Switchblade</li>
+                <li>Nightcrawlers</li>
+                <li>Selene</li>
+                <li>Tide</li>
+                <li>Pandemonium</li>
+                <li>Lose</li>
+                <li>Plot Twist</li>
+                <li>If There’s Nothing Left…</li>
+                <li>Drive On</li>
+            </ul>
+        </div>
+    </label>
+
+    <!-- NICOLE -->
+    <input type="checkbox" id="album2" class="album-toggle">
+    <label for="album2" class="album-card album-pink">
+        <img src="img3/cv nicole.jpg">
+        <h3>Nicole</h3>
+        <p>2022</p>
+
+        <div class="song-list">
+            <ul>
+                <li>Before</li>
+                <li>High School in Jakarta</li>
+                <li>Backburner</li>
+                <li>Keeping Tabs</li>
+                <li>The Apartment We Won’t Share</li>
+                <li>Facebook Friends</li>
+                <li>Anaheim</li>
+                <li>Milk Teeth</li>
+                <li>Autumn</li>
+                <li>Oceans & Engines</li>
+                <li>On The Drive Home</li>
+                <li>Take A Chance With Me</li>
+            </ul>
+        </div>
+    </label>
+
+    <!-- BUZZ -->
+    <input type="checkbox" id="album3" class="album-toggle">
+    <label for="album3" class="album-card album-purple">
+        <img src="img3/cv buzz (1).jpg">
+        <h3>Buzz</h3>
+        <p>2024</p>
+
+        <div class="song-list">
+            <ul>
+                <li>Buzz</li>
+                <li>Too Much Of A Good Thing</li>
+                <li>Colossal Loss</li>
+                <li>Focus</li>
+                <li>Did You Like Her In The Morning?</li>
+                <li>Take Care</li>
+                <li>Magnets</li>
+                <li>Tsunami</li>
+                <li>Blue Moon</li>
+                <li>Strong Girl</li>
+                <li>Paths</li>
+                <li>Heirloom Pain</li>
+                <li>Nothing Can</li>                
+            </ul>
+        </div>
+    </label>
+</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer" class="container">
+        &copy; Copyright Hilya Asyhar Ulya,251011701002,01SIFP016 – 2025
+    </div>
+
+    <!-- JAVASCRIPT JAM -->
+    <script>
+        function updateClock() {
+            const clock = document.getElementById("clock");
+            const now = new Date();
+
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            clock.innerHTML = h + ":" + m + ":" + s;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
